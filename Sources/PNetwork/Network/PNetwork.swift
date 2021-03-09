@@ -27,7 +27,7 @@ public class PNetwork: PNetworker {
         let callbackResponse = checkResponse(response: response, error: error, model: model)
         
         //return if have error
-        guard callbackResponse.error != nil else {
+        guard callbackResponse.error == nil else {
             completion(callbackResponse)
             return
         }
@@ -116,19 +116,6 @@ public class PNetwork: PNetworker {
             self?.processResponse(response: response, data: data, error: error, endpoint: endpoint, model: model, completion: completion)
         }.resume()
         
-        //
-//        let json: String = """
-//            {
-//                "banners": [
-//                    {
-//                        "id": "1"
-//                        "url" : "https://static.netshoes.com.br/bnn/l_netshoes/2021-03-04/2066_full5_desk.jpg"
-//                    }
-//                ]
-//
-//            }
-//        """
-//        completion(json, 200)
     }
     
 }
